@@ -34,13 +34,39 @@ public class _01_StringMethods {
 
     // Given Strings s1 and s2, return the longer String
     public static String longerString(String s1, String s2) {
-        return null;
+        if (s1.length() > s2.length()) {
+        	return s1;
+        }
+    	return s2;
     }
 
     // If String s contains the word "underscores", change all of the spaces
     // to underscores
     public static String formatSpaces(String s) {
-        return null;
+    	String str = "";
+    	String newStr = "";
+        for (int i = 0; i < s.length(); i++) {
+        	str = str + s.charAt(i);
+        	if (str.length() == 12) {
+        		for (int j = 0; j < 11; j++) {
+        			newStr = newStr + str.charAt(j+1);
+        		}
+        		str = newStr;
+        		newStr = "";
+        	}
+        	if (str.equals("underscores")) {
+        		str = "";
+        		for (int j = 0; j < s.length(); j++) {
+        			if (s.charAt(j) == ' ') {
+        				str = str + "_";
+        			}else {
+        				str = str + s.charAt(j);
+        			}
+        		}
+        		return str;
+        	}
+        }
+    	return s;
     }
 
     // Return the name of the person whose LAST name would appear first if they
