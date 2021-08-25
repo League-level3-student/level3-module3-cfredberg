@@ -74,12 +74,80 @@ public class _01_StringMethods {
     // You cannot assume there are no extra spaces around the name, but you can
     // assume there is only one space between the first and last name
     public static String lineLeader(String s1, String s2, String s3) {
-        return null;
+    	boolean isSpaced = false;
+    	boolean isFirst = false;
+    	char str1 = ' ';
+    	String str2 = "";
+    	String str = "";
+    	for (int i = 0; i < s1.length(); i++) {
+    		if (s1.charAt(i) == ' ') {
+    			if (isFirst == true) {
+    				isSpaced = true;
+    				str = str + s1.charAt(i);
+    			}
+    		}else {
+    			str = str + s1.charAt(i);
+    			isFirst = true;
+    			if (isSpaced == true) {
+    				str1 = s1.charAt(i);
+    				str2 = str;
+    			}
+    		}
+    	}
+    	
+    	isSpaced = false;
+    	isFirst = false;
+    	str = "";
+    	for (int i = 0; i < s2.length(); i++) {
+    		if (s2.charAt(i) == ' ') {
+    			if (isFirst == true) {
+    				isSpaced = true;
+    				str = str + s2.charAt(i);
+    			}
+    		}else {
+    			isFirst = true;
+    			str = str + s2.charAt(i);
+    			if (isSpaced == true) {
+    				if (s2.charAt(i) < str1) {
+    					str1 = s2.charAt(i);
+        				str2 = str;
+    				}
+    			}
+    		}
+    	}
+    	isSpaced = false;
+    	isFirst = false;
+    	str = "";
+    	for (int i = 0; i < s3.length(); i++) {
+    		if (s3.charAt(i) == ' ') {
+    			if (isFirst == true) {
+    				str = str + s3.charAt(i);
+    				isSpaced = true;
+    			}
+    		}else {
+    			isFirst = true;
+    			str = str + s3.charAt(i);
+    			if (isSpaced == true) {
+    				if (s3.charAt(i) < str1) {
+    					str1 = s3.charAt(i);
+        				str2 = str;
+    				}
+    			}
+    		}
+    	}
+        return str2;
     }
 
     // Return the sum of all numerical digits in the String
     public static int numeralSum(String s) {
-        return 0;
+    	int total = 0;
+    	for (int i = 0; i < s.length(); i++) {
+    		if (Character.isDigit(s.charAt(i))) {
+    			total += Character.getNumericValue(s.charAt(i));
+    			System.out.println(total);
+    		}
+    	}
+        return total;
     }
 
     // Return the number of times String substring appears in String s
