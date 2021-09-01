@@ -1,5 +1,6 @@
 package _00_Intro_To_String_Methods;
 
+import java.util.ArrayList;
 import java.util.Base64;
 
 /*
@@ -152,24 +153,55 @@ public class _01_StringMethods {
 
     // Return the number of times String substring appears in String s
     public static int substringCount(String s, String substring) {
-        return 0;
+        int count = 0;
+    	for (int i = substring.length()-1; i < s.length(); i++) {
+    		String word = "";
+    		for (int j = 0; j < substring.length(); j++) {
+    			word = s.charAt(i-j) + word;
+    		}
+    		if (word.equals(substring)) {
+    			count++;
+    		}
+    	}
+    	return count;
     }
 
     // Call Utilities.encrypt at the bottom of this file to encrypt String s
     public static String encrypt(String s, char key) {
-        return null;
+        return Utilities.encrypt(s.getBytes(), (byte) key);
     }
 
     // Call Utilities.decrypt at the bottom of this file to decrypt the
     // cyphertext (encrypted text)
     public static String decrypt(String s, char key) {
-        return null;
+        return Utilities.decrypt(s, (byte) key);
     }
 
     // Return the number of words in String s that end with String substring
     // You can assume there are no punctuation marks between words
     public static int wordsEndsWithSubstring(String s, String substring) {
-        return 0;
+        ArrayList<String> list = new ArrayList<String>();
+        int count = 0;
+        String word = "";
+        for (int i = 0; i < s.length(); i++) {
+        	if (s.charAt(i) == ' ') {
+        		list.add(word);
+        		word = "";
+        	}else {
+        		word = word + s.charAt(i);
+        		if (i == s.length()-1) {
+        			list.add(word);
+        		}
+        	}
+        }
+        
+        for (int i = 0; i < list.size(); i++) {
+        	String str = "";
+        	for (int j = list.get(i).length(); j > substring.length(); j--) {
+        		
+        	}
+        }
+    	return 0;
     }
 
     // Given String s, return the number of characters between the first
