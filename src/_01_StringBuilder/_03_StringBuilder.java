@@ -4,11 +4,21 @@ package _01_StringBuilder;
 public class _03_StringBuilder {
     
     public static String append(String str, char[] characters) {
-        return null;
+    	String s1 = "";
+    	for (char chr:characters) {
+    		s1 = s1 + chr;
+    	}
+    	s1 = str + s1;
+    	System.out.println(s1);
+        return s1;
     }
     
     public static String reverse(String str) {
-        return null;
+    	String s1 = "";
+    	for (char chr:str.toCharArray()) {
+    		s1 = chr + s1;
+    	}
+        return s1;
     }
     
     public static String insert(String str, int index, char newChar) {
